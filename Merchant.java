@@ -24,7 +24,20 @@ public class Merchant {
     }
 
     public void earnGold(int amount) {
-        if(amount > 0 || )
+        if(amount > 0)
+            this.gold += amount;
+    }
+
+    public boolean buy(Port port, Good good, int qty) {
+        return;
+    }
+
+    public boolean sell(Port port, Good good, int qty) {
+        return;
+    }
+
+    public void moveTo(Port port) {
+        currentPort = port;
     }
 
     public String getName() {
