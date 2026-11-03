@@ -28,10 +28,12 @@ public class Merchant {
     }
 
     public boolean buy(Port port, Good good, int qty) {
+        // TODO: implement once Vessel is finalized
         return;
     }
 
     public boolean sell(Port port, Good good, int qty) {
+        // TODO: implement once Vessel is finalized
         return;
     }
 
@@ -55,9 +57,9 @@ public class Merchant {
         return targetProfit;
     }
 
-    /*public Vessel getVessel() {
+    public Vessel getVessel() {
         return vessel;
-    }*/
+    }
 
     public int getProfit() {
         return getGold() - getCapital();
