@@ -11,8 +11,7 @@ public class Merchant {
         this.capital = capital;
         this.targetProfit = targetProfit;
         gold = capital;
-        // vessel = new Vessel()
-        // currentPort = Manila
+        vessel = new Vessel();
     }
 
     public boolean spendGold(int amount) {
