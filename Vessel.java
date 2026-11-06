@@ -87,4 +87,34 @@ public class Vessel {
      */
     public boolean load(Good good, int qty)
         if (qty <= 0; || qty > getFreeSpace())
-            
+            return false;
+
+        int i = indexOf(good);
+        if (i == -1) {
+            if (count >= goods.length)
+                return false;
+            goods[count] = good;
+            quantities[count] = qty;
+            count++;
+        } else {
+            quantities[i] += qty;
+        }
+        return true;
+    }
+
+    /**
+     * Unloads the goods from the vessel if enough are carried.
+     * 
+     * @param good         the good
+     * @param qty          the quantity to load (minimum of 1, if 0 or below then invalid)
+     * @return true if unloaded, false if the qty is invalid or it is more than carried.
+     */
+    public boolean unload(Good good, int qty) {
+        int i = indexOf(good);
+        if (qty <=0 || i == -1 || qty > quantities[i]) {
+            return false;
+        }
+
+        quantities[i] -= qty;
+        return true;
+    }    
