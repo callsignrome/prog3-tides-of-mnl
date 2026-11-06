@@ -9,7 +9,7 @@ public class Good {
     /**
      * Initializes a new good with the given name.
      *
-     * @param name of the good.
+     * @param name    name of the good.
      */
     public Good(String name) {
         this.name = name;
