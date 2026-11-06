@@ -117,10 +117,53 @@ public class Game {
         return MAX_TURNS;
     }
 
-/**
- * When sailing to another port one turn passes and the day rises by one. The merchant then docks at the destination
- * and the destination generates new prices. The last allowed journey lands on day getMaxTurns().
- *
- * @param dest        the destination port
- * @return true if the journey
- */
+    /**
+     * When sailing to another port one turn passes and the day rises by one. The merchant then docks at the destination
+     * and the destination generates new prices. The last allowed journey lands on day getMaxTurns().
+     *
+     * @param dest        the destination port
+     * @return true if the journey occurred, false if the game is over wherein the destination is equal to null, the destination is not one of 
+     *                    of the game's ports, or the destination is the merchant's current port.
+     */
+    public boolean travel(Port dest) {
+        if (isGameOver() || dest == null || !ports.contains(dest) || dest == merchant.getCurrentPort()) {
+            return false;
+        }
+        merchant.moveTo(dest);
+        day++;
+        dest.generatePrices();
+        return true;
+    }
+
+    /**
+     * Checks whether the game has ended by attaining the target or by the turn limit being met.
+     * (Note: Quitting is handled by the console driver)
+     * 
+     * @return true if the profit percentage has been met or if the day (turn) limit has been reached
+     */
+    public boolean isGameOver() {
+        return merchant.getProfitPercent() >= merchant.getTargetProfit() || day >= MAX_TURNS;
+    }
+
+    /**
+     * Creates an end of the game (final) message that summarizes the game's outcome. In so it displays 
+     * whether the merchant has won, ran out of time, or quit, followed by the merchant's final gold, total 
+     * profit, and the number of days taken to attain such.
+     *
+     * @return the end of the game message to print
+     */
+    public String getMessage() {
+        String result;
+        if (merchant.getProfitPercent() >= merchant.getTargetProfit()) {
+            result = "Congratulations! You have reached your target profit.";
+        } else if (day >= MAX_TURNS) {
+            result = "Your " + MAX_TURNS + " turns have ran out prior to you reaching your target profit";
+        } else {
+            result = "You decided to retire from trading";
+        }
+        return result + String.format("%nFinal gold: %d | Profit: %d (%.2f%%) | Turns used: %d",
+                merchant.getGold(), merchant.getProfit(), merchant.getProfitPercent(), day);
+    }
+}
+            
+        
