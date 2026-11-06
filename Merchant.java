@@ -110,79 +110,75 @@ public class Merchant {
     }
 
     /**
+     * Gets the merchant's name.
      *
-     *
-     *
-     *
-     *
+     * @return the name
      */
     public String getName() {
         return name;
     }
 
     /**
+     * Gets the starting capital
      *
-     *
-     *
-     *
-     *
+     * @return the starting capital in gold
      */
     public int getCapital() {
         return capital;
     }
 
     /**
+     * Gets the gold that is on hand.
      *
-     *
-     *
-     *
-     *
+     * @return the current gold
      */
     public int getGold() {
         return gold;
     }
 
     /**
+     * Gets the target profit percentage.
      *
-     *
-     *
-     *
-     *
+     * @return the target profit percentage
      */
     public double getTargetProfit() {
         return targetProfit;
     }
 
     /**
+     * Gets the vessel.
      *
-     *
-     *
-     *
-     *
+     * @return the merchant's vessel
      */
     public Vessel getVessel() {
         return vessel;
     }
 
     /**
+     * Gets the port where the merchant is docked
+     * 
+     * @return the current port
+     */
+    public Port getCurrentPort() {
+        return currentPort;
+    }
+
+    /**
+     * Computes for the profit gained via the formula: Current Gold minus Starting Capital
      *
-     *
-     *
-     *
-     *
+     * @return the profit in gold (returns negative for a loss)
      */
     public int getProfit() {
         return getGold() - getCapital();
     }
 
     /**
-     *
-     *
-     *
-     *
-     *
+     * Computes for the profit as a percentage of the starting capital
+     * via this formula: Profit divided by Capital multiplied by 100
+     * 
+     * @return the profit percentage
      */
     public double getProfitPercent() {
-        return (getProfit() / getCapital()) * 100;
+        return ((double) getProfit() / getCapital()) * 100;
     }
 }
