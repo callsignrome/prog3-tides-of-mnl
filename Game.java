@@ -1,13 +1,11 @@
+import java.util.ArrayList;
+
 /**
  * Game.java
  * PURPOSE OF THIS FILE: This file acts as the central game engine and state manager. It initializes the world 
  *                       (goods, ports, and the merchant), tracks the progression of time (days), handles the core 
  *                       logic for traveling, and evaluates the win/loss conditions to determine when the game ends.
- */
-
-import java.util.ArrayList;
-
-/**
+ * 
  * Main game logic controller
  *     Starts on day 0
  *     Ends at "getMaxTurns()"
