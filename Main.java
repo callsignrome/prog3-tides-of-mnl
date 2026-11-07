@@ -195,18 +195,36 @@ public class Main {
 
         if (qty <= 0) {
             System.out.println("Input Error: the quantity must be at least 1.");
-        } else if (buying && qty > m.getVessel().getFreeSpace()) {
-            System.out.println("Error: not enough cargo space. Free space: " + m.getVessel().getFreeSpace() + ".");
-        } else if (buying && (long) qty * port.getPrice(good) > m.getGold()) {
-            System.out.println("Error: you do not have enough gold to buy that. Cost: " + (long) qty * port.getPrice(good) + ", you have " + m.getGold() + ".");
-        } else if (!buying && qty > m.getVessel().getQuantity(good)) {
-            System.out.println("Error: you only carry " + m.getVessel().getQuantity(good) + " " + good.getName() + ".");
-        } else if (buying && m.buy(port, good, qty)) {
-            System.out.println("Successfully bought " + qty + " " + good.getName() + " for " + qty * port.getPrice(good) + " gold.");
-        } else if (!buying && m.sell(port, good, qty)) {
-            System.out.println("Successfully sold " + qty + " " + good.getName() + " for " + qty * port.getPrice(good) + " gold.");
+            return;
+        }
+
+        int price = port.getPrice(good);
+         total = () qty * price;
+
+        if (buying) {
+            if (qty > m.getVessel().getFreeSpace()) {
+                System.out.println("Error: not enough cargo space. Free space: " + m.getVessel().getFreeSpace() + ".");
+            } else if (total > m.getGold()) {
+                System.out.println("Error: you do not have enough gold to buy that. Cost: " + total + ", you have " + m.getGold() + ".");
+            } else {
+                boolean success = m.buy(port, good, qty);
+                if (success) {
+                    System.out.println("Successfully bought " + qty + " " + good.getName() + " for " + total + " gold.");
+                } else {
+                    System.out.println("Error: the transaction failed.");
+                }
+            }
         } else {
-            System.out.println("Error: the transaction failed.");
+            if (qty > m.getVessel().getQuantity(good)) {
+                System.out.println("Error: you only carry " + m.getVessel().getQuantity(good) + " " + good.getName() + ".");
+            } else {
+                boolean success = m.sell(port, good, qty);
+                if (success) {
+                    System.out.println("Successfully sold " + qty + " " + good.getName() + " for " + total + " gold.");
+                } else {
+                    System.out.println("Error: the transaction failed.");
+                }
+            }
         }
     }
 
@@ -231,8 +249,7 @@ public class Main {
             return;
         }
         if (game.travel(options.get(pick - 1))) {
-            System.out.println("Arrived at " + options.get(pick - 1).getName()
-                    + ". It is now day " + game.getDay() + ". New market prices are set.");
+            System.out.println("Arrived at " + options.get(pick - 1).getName() + ". It is now day " + game.getDay() + ". New market prices are set.");
         } else {
             System.out.println("Error: the journey could not be made.");
         }
