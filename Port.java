@@ -56,7 +56,7 @@ public class Port {
 
     /**
      * Sets the range of a good. If the min is larger than the max, the two bounds are swapped so that 
-     * the range is always min to max. If there is a fifth different good given, it is ignored since a post trades at most 4 goods.
+     * the range is always min to max. If there is a fifth different good given, it is ignored since a port trades at most 4 goods.
      * 
      * @param good         the good
      * @param min          the lower bound of the price
