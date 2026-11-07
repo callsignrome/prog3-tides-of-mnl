@@ -106,8 +106,8 @@ public class Vessel {
      * Unloads the goods from the vessel if enough are carried.
      * 
      * @param good         the good
-     * @param qty          the quantity to load (minimum of 1, if 0 or below then invalid)
-     * @return true if unload, false if the qty is invalid or it is more than carried.
+     * @param qty          the quantity to unload (minimum of 1, if 0 or below then invalid)
+     * @return true if unloaded, false if the qty is invalid or it is more than carried.
      */
     public boolean unload(Good good, int qty) {
         int i = indexOf(good);
