@@ -39,7 +39,7 @@ public class Port {
      * @return the slot number (-1 if the port does not trade said good)
      */
     private int indexOf(Good good) {
-        for (int = 0; i < count; i++)
+        for (int i = 0; i < count; i++)
             if (goods[i].equals(good))
                 return i;
         return -1;
@@ -50,13 +50,13 @@ public class Port {
      * 
      * @return the name of the port
      */
-    private String getName() {
+    public String getName() {
         return name;
     }
 
     /**
      * Sets the range of a good. If the min is larger than the max, the two bounds are swapped so that 
-     * the range is always min to max. If there is a fifth different, it is ignored as the most post trades is 4.
+     * the range is always min to max. If there is a fifth different good given, it is ignored since a post trades at most 4 goods.
      * 
      * @param good         the good
      * @param min          the lower bound of the price
@@ -65,7 +65,7 @@ public class Port {
     public void setRange(Good good, int min, int max) {
         int i = indexOf(good);
         if (i == -1) {
-            if (count <= goods.length) {
+            if (count >= goods.length) {
                 return;
             }
             i = count;
@@ -82,11 +82,11 @@ public class Port {
      * This is called each time the player arrives at the port.
      */   
     public void generatePrices() {
-        for (int = 0; i < count; i++) {
+        for (int i = 0; i < count; i++) {
             int min = minPrices[i];
             int max = maxPrices[i];
             
-            price[i] = min + (int) (Math.random() * ((max - min) + 1));
+            prices[i] = min + (int) (Math.random() * ((max - min) + 1));
         }
     }
 
@@ -94,11 +94,11 @@ public class Port {
      * Gets the price of a good for the current visit.
      *
      * @param good         the good
-     * @param return       the current price (-1 if the good is not traded here or no price has been generated yet)
+     * @return the current price (-1 if the good is not traded here or no price has been generated yet)
      */
     public int getPrice(Good good) {
         int i = indexOf(good);
-        if (i == 1) {
+        if (i == -1) {
             return -1;
         }      
         return prices[i];
