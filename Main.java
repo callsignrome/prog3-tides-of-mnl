@@ -199,7 +199,7 @@ public class Main {
         }
 
         int price = port.getPrice(good);
-         total = () qty * price;
+        long total = (long) qty * price;
 
         if (buying) {
             if (qty > m.getVessel().getFreeSpace()) {
