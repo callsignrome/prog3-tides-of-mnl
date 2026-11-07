@@ -1,6 +1,5 @@
 /**
- * Vessel.java
- * PURPOSE OF THIS FILE: Defines the merchant's vessel and tracks the inventory of goods it carries. At the same time, it enforces
+ *                       Defines the merchant's vessel and tracks the inventory of goods it carries. At the same time, it enforces
  *                       the maximum cargo capacity limit and provides methods to load or unload quantities of tradable goods.
  */
 public class Vessel {

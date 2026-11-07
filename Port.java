@@ -1,6 +1,5 @@
 /**
- * Port.java
- * PURPOSE OF THIS FILE: Defines a trading port in the game. It also tracks the name of the port, 
+ *                       Defines a trading port in the game. It also tracks the name of the port,
  *                       the goods it trades using parallel arrays, their respective minimum and maximum 
  *                       price ranges, and the specific prices generated for the merchant's current visit.
  */

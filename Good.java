@@ -1,6 +1,5 @@
 /**
- * Good.java
- * PURPOSE OF THIS FILE: Defines a tradable good (Coconut, Rice, Silk, or Gun) within the game, 
+ *                       Defines a tradable good (Coconut, Rice, Silk, or Gun) within the game,
  *                       then stores its name so that it can be priced and traded at different ports.
  */
 public class Good {

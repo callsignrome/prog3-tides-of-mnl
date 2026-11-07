@@ -1,10 +1,8 @@
 /**
- * Merchant.java
- * PURPOSE OF THIS FILE: Defines the player (the merchant) within the game. 
+ *                       This class defines the player (the merchant) within the game.
  *                       It covers the player's financial state in terms of gold, starting capital, target profit. At the same
  *                       time, it tracks their current location and vessel, and handles the core actions for buying and selling goods.
- *
- * The player. The profit is never stored as it is always computed as the gold minus starting capital
+ *                       The profit is never stored as it is always computed as the gold minus starting capital
  */
 public class Merchant {
     /** Name of the Merchant */
