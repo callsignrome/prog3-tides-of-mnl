@@ -4,6 +4,7 @@
  *                       then stores its name so that it can be priced and traded at different ports.
  */
 public class Good {
+    /** Name of the good */
     private String name;
 
     /**
