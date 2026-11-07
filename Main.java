@@ -134,9 +134,9 @@ public class Main {
                 if (isValidTarget(target)) {
                     return target;
                 }
-                System.out.println("Error: the target must be at least 20%.");
+                System.out.println("Input Error: the target must be at least 20%.");
             } catch (NumberFormatException e) {
-                System.out.println("Error: please enter a number.");
+                System.out.println("Input Error: please enter a number.");
             }
         }
     }
@@ -198,7 +198,7 @@ public class Main {
         if (qty <= 0) {
             System.out.println("Input Error: the quantity must be at least 1.");
         } else if (buying && qty > m.getVessel().getFreeSpace()) {
-            System.out.println("Input Error: not enough cargo space. Free space: " + m.getVessel().getFreeSpace() + ".");
+            System.out.println("Error: not enough cargo space. Free space: " + m.getVessel().getFreeSpace() + ".");
         } else if (buying && (long) qty * port.getPrice(good) > m.getGold()) {
             System.out.println("Error: you do not have enough gold to buy that. Cost: " + (long) qty * port.getPrice(good) + ", you have " + m.getGold() + ".");
         } else if (!buying && qty > m.getVessel().getQuantity(good)) {
@@ -229,7 +229,7 @@ public class Main {
             return;
         }
         if (pick < 1 || pick > options.size()) {
-            System.out.println("Error: that is not a valid port.");
+            System.out.println("Input Error: that is not a valid port.");
             return;
         }
         if (game.travel(options.get(pick - 1))) {
@@ -247,7 +247,7 @@ public class Main {
      * @return the number (or null if the input was not a whole number)
      */
     private static Integer readInt (String prompt) {
-        System.out.println(prompt);
+        System.out.print(prompt);
         try {
             return Integer.parseInt(INPUT.nextLine().trim());
         }
