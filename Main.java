@@ -93,7 +93,7 @@ public class Main {
     private static String askName() {
         while(true) {
             System.out.print("Enter the Merchant's name: ");
-            String name INPUT.nextLine();
+            String name = INPUT.nextLine();
             if (isValidName(name)) {
                 return name.trim();
             }
@@ -220,7 +220,7 @@ public class Main {
     private static void travel(Game game) {
         ArrayList<Port> options = new ArrayList<>(game.getPorts());
         options.remove(game.getMerchant().getCurrentPort());
-        System.out.print.ln("Travel to:");
+        System.out.println("Travel to:");
         for (int i = 0; i < options.size(); i++) {
             System.out.println("  [" + (i + 1) + "] " + options.get(i).getName());
         }
