@@ -100,14 +100,23 @@ public class Game {
     }
     
     /**
-     * Gets the current day (amount of turns used)
+     * Gets the goods.
      *
-     * @return the day (days/turns elapsed from 0 to the maximum turn
+     * @return the list of goods
      */
     public ArrayList<Good> getGoods() {
         return goods;
     }
 
+    /**
+     * Gets the current day (amount of turns used)
+     *
+     * @return the day (days/turns elapsed from 0 to the maximum turn)
+     */
+    public int getDay() {
+        return day;
+    }
+    
     /**
      * Gets the turn limit.
      * 
@@ -152,18 +161,16 @@ public class Game {
      *
      * @return the end of the game message to print
      */
-    public String getMessage() {
+    public String getEndMessage() {
         String result;
         if (merchant.getProfitPercent() >= merchant.getTargetProfit()) {
             result = "Congratulations! You have reached your target profit.";
         } else if (day >= MAX_TURNS) {
-            result = "Your " + MAX_TURNS + " turns have ran out prior to you reaching your target profit";
+            result = "Your " + MAX_TURNS + " turns have run out prior to you reaching your target profit";
         } else {
             result = "You decided to retire from trading";
         }
         return result + String.format("%nFinal gold: %d | Profit: %d (%.2f%%) | Turns used: %d",
                 merchant.getGold(), merchant.getProfit(), merchant.getProfitPercent(), day);
     }
-}
-            
-        
+}        
