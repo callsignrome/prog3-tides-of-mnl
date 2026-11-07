@@ -1,15 +1,13 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+
 /**
  * Main.java
  * PURPOSE OF THIS FILE: Serves as the console driver and text based interface of the game.
  *                       Particularly, it handles all of the user input and validation, displays
  *                       the main game interface and connects all player choices which include
  *                       buying, selling, travelling or quitting to the game model.
- */
-
-import java.util.ArrayList;
-import java.util.Scanner;
-
-/**
+ * 
  * Console driver for the game.
  */ 
 public class Main {
